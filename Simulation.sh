@@ -379,4 +379,31 @@ dim(RES[which(RES$STAT < -1.645 | RES$STAT > 1.645),])[1]
 
 
 
+
+
+### Same procedure was applied to datasets with a different percentage of zero values
+### The final sample size remained similar (N=657 in this application)
+### Below is the example for a sample with 80% of zero values
+### ==> 526 zeros + 131 values randomly sampled from the strictly positive values observed
+
+#-----------------------------------------------------------------------#
+###################### Simulation of the datasets #######################
+
+###################### Creation of 10 000 bootstraps from NETs values #######################
+
+DTBY10000 <- data.frame(mat = matrix(ncol = 10000, nrow = 657))
+
+for (simu in 1:10000) {
+  set.seed(simu)
+  
+  DTBY10000[,simu] <- c(rep(0,526), sample(DTB[,"NET1000"], size=131, replace=T))
+  DTBY10000[,simu] <- sample(DTBY10000[,simu], size=657, replace=F)
+  colnames(DTBY10000)[simu] <- paste0("SIMU_",simu)
+}
+
+
+
+
+
+
 END
