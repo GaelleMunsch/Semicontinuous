@@ -16,3 +16,5 @@ Bootstrap procedures were used to calculate the RMSE criteria with each model of
 ### Simulation.sh
 This file contains the R code used for simulations described in the paper. It includes the simulation of the genotypes, the model estimation (Compound Poisson-Gamma and Negative Binomial) and the number of significant tests.
 
+### Simulation_haplotypes.sh
+This file contains the R code used to obtain SNPs values from haplotypes frequencies. The first step is to simulate haplotypes (2 per individuals) then to obtain the diplotypes and finally the SNPs values using to construct the theorical haplotypes.
